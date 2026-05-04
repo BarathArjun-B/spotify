@@ -1,0 +1,438 @@
+:root {
+    --bg-color: #000000;
+    --sidebar-bg: #121212;
+    --card-bg: #181818;
+    --card-hover: #282828;
+    --text-main: #ffffff;
+    --text-sub: #b3b3b3;
+    --accent-color: #1db954;
+    --accent-hover: #1ed760;
+    --player-bg: #181818;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Layout */
+.container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    height: calc(100vh - 90px); /* Leave room for player */
+}
+
+/* Sidebar */
+.sidebar {
+    width: 250px;
+    background-color: var(--bg-color);
+    padding: 24px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 12px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu li {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text-sub);
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    border-radius: 4px;
+}
+
+.nav-menu li:hover {
+    color: var(--text-main);
+}
+
+.nav-menu li.active {
+    color: var(--text-main);
+}
+
+.nav-menu li i {
+    font-size: 20px;
+}
+
+.secondary {
+    margin-top: 24px;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    background-color: var(--sidebar-bg);
+    border-radius: 8px;
+    margin: 8px 8px 0 0;
+    overflow-y: auto;
+    position: relative;
+    background: linear-gradient(180deg, #2a2a2a 0%, var(--sidebar-bg) 100%);
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: rgba(18, 18, 18, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.nav-arrows {
+    display: flex;
+    gap: 16px;
+}
+
+.nav-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: rgba(0,0,0,0.7);
+    border: none;
+    color: var(--text-main);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.upgrade-btn {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.upgrade-btn:hover {
+    transform: scale(1.04);
+}
+
+.install-btn {
+    background: transparent;
+    color: var(--text-main);
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.user-profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.content-section {
+    padding: 24px;
+}
+
+.content-section h2 {
+    font-size: 32px;
+    margin-bottom: 24px;
+}
+
+/* Cards Container */
+.cards-container {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.music-card {
+    width: 200px;
+    background-color: var(--card-bg);
+    padding: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.music-card:hover {
+    background-color: var(--card-hover);
+}
+
+.music-card img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+}
+
+.card-info h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info p {
+    font-size: 14px;
+    color: var(--text-sub);
+}
+
+.card-play-btn {
+    position: absolute;
+    right: 24px;
+    bottom: 90px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--bg-color);
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.3);
+}
+
+.music-card:hover .card-play-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-play-btn:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+/* Player */
+.player {
+    height: 90px;
+    background-color: var(--player-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    border-top: 1px solid #282828;
+}
+
+.player-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: 30%;
+}
+
+.player-left img {
+    width: 56px;
+    height: 56px;
+    border-radius: 4px;
+}
+
+.track-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.track-info h4 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.track-info p {
+    font-size: 12px;
+    color: var(--text-sub);
+}
+
+.player-left .fa-heart {
+    color: var(--text-sub);
+    cursor: pointer;
+}
+
+.player-left .fa-heart:hover {
+    color: var(--text-main);
+}
+
+.player-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
+    max-width: 722px;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 8px;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-sub);
+    font-size: 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.control-btn:hover {
+    color: var(--text-main);
+}
+
+.play-pause-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--text-main);
+    color: var(--bg-color);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+}
+
+.play-pause-btn:hover {
+    transform: scale(1.1);
+}
+
+.playback-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.playback-bar span {
+    font-size: 12px;
+    color: var(--text-sub);
+}
+
+.progress-container {
+    flex: 1;
+    height: 4px;
+    background-color: #4d4d4d;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    width: 0%;
+    position: relative;
+}
+
+.progress::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    width: 12px;
+    height: 12px;
+    background-color: var(--text-main);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.progress-container:hover .progress {
+    background-color: var(--accent-color);
+}
+
+.progress-container:hover .progress::after {
+    opacity: 1;
+}
+
+.player-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 16px;
+    width: 30%;
+    color: var(--text-sub);
+}
+
+.player-right i {
+    cursor: pointer;
+}
+
+.player-right i:hover {
+    color: var(--text-main);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-container {
+    width: 90px;
+    height: 4px;
+    background-color: #4d4d4d;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.volume-bar {
+    height: 100%;
+    background-color: var(--text-main);
+    border-radius: 2px;
+    width: 100%;
+}
+
+.volume-container:hover .volume-bar {
+    background-color: var(--accent-color);
+}

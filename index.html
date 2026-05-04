@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify Clone</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fab fa-spotify"></i>
+                <span>Spotify</span>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active"><i class="fas fa-home"></i> <span>Home</span></li>
+                    <li><i class="fas fa-search"></i> <span>Search</span></li>
+                    <li><i class="fas fa-book"></i> <span>Your Library</span></li>
+                </ul>
+            </nav>
+            <div class="nav-menu secondary">
+                <ul>
+                    <li><i class="fas fa-plus-square"></i> <span>Create Playlist</span></li>
+                    <li><i class="fas fa-heart"></i> <span>Liked Songs</span></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="topbar">
+                <div class="nav-arrows">
+                    <button class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="user-actions">
+                    <button class="upgrade-btn">Explore Premium</button>
+                    <button class="install-btn"><i class="far fa-arrow-alt-circle-down"></i> Install App</button>
+                    <div class="user-profile">
+                        <i class="far fa-user"></i>
+                    </div>
+                </div>
+            </header>
+
+            <div class="content-section">
+                <h2>Good evening</h2>
+                
+                <div class="cards-container">
+                    <div class="music-card" onclick="playSong(0)">
+                        <img src="saiyaara_cover.png" alt="Saiyaara">
+                        <div class="card-info">
+                            <h3>Saiyaara</h3>
+                            <p>Ek Tha Tiger</p>
+                        </div>
+                        <button class="card-play-btn"><i class="fas fa-play"></i></button>
+                    </div>
+
+                    <div class="music-card" onclick="playSong(1)">
+                        <img src="raanjhanaa_cover.png" alt="Raanjhanaa">
+                        <div class="card-info">
+                            <h3>Raanjhanaa</h3>
+                            <p>A. R. Rahman</p>
+                        </div>
+                        <button class="card-play-btn"><i class="fas fa-play"></i></button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Audio Player -->
+    <footer class="player">
+        <div class="player-left">
+            <img src="saiyaara_cover.png" alt="Album Art" id="current-cover">
+            <div class="track-info">
+                <h4 id="current-title">Saiyaara</h4>
+                <p id="current-artist">Ek Tha Tiger</p>
+            </div>
+            <i class="far fa-heart" id="like-btn"></i>
+        </div>
+
+        <div class="player-center">
+            <div class="player-controls">
+                <button class="control-btn"><i class="fas fa-random"></i></button>
+                <button class="control-btn" id="prev-btn"><i class="fas fa-step-backward"></i></button>
+                <button class="play-pause-btn" id="play-pause-btn"><i class="fas fa-play" id="play-icon"></i></button>
+                <button class="control-btn" id="next-btn"><i class="fas fa-step-forward"></i></button>
+                <button class="control-btn"><i class="fas fa-redo"></i></button>
+            </div>
+            <div class="playback-bar">
+                <span id="current-time">0:00</span>
+                <div class="progress-container" id="progress-container">
+                    <div class="progress" id="progress"></div>
+                </div>
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="player-right">
+            <i class="fas fa-microphone"></i>
+            <i class="fas fa-list"></i>
+            <i class="fas fa-laptop-house"></i>
+            <div class="volume-control">
+                <i class="fas fa-volume-up" id="volume-icon"></i>
+                <div class="volume-container" id="volume-container">
+                    <div class="volume-bar" id="volume-bar"></div>
+                </div>
+            </div>
+            <i class="fas fa-expand-alt"></i>
+        </div>
+    </footer>
+
+    <audio id="audio-element"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
