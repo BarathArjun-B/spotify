@@ -1,24 +1,24 @@
-# ⚽ CR7 React
+# 🎵 Spotify Clone
 
-A modern React-based web application inspired by Cristiano Ronaldo (CR7), showcasing a clean UI, dynamic components, and responsive design. This project demonstrates front-end development skills using React and modern JavaScript.
+A web-based Spotify-inspired music player built with a focus on clean UI, smooth user experience, and modular frontend design. This project demonstrates the ability to build interactive media applications using modern web technologies.
 
 ---
 
 ## 🚀 Features
 
-* ⚛️ Built with React (functional components & hooks)
-* 🎨 Clean and responsive UI design
-* 📱 Mobile-friendly layout
-* 🔄 Reusable component architecture
-* ⚡ Fast and optimized performance
+* 🎧 Play and control songs (play, pause, next)
+* 📂 Organized music library
+* 🎨 Clean and responsive UI
+* ⚡ Fast and lightweight frontend
+* 🖼️ Album/song cover display
 
 ---
 
 ## 🛠️ Tech Stack
 
-* React.js
-* JavaScript (ES6+)
-* HTML5 & CSS3
+* HTML5
+* CSS3
+* JavaScript
 
 ---
 
@@ -26,48 +26,35 @@ A modern React-based web application inspired by Cristiano Ronaldo (CR7), showca
 
 Clone the repository:
 
-```bash
-git clone https://github.com/your-username/cr7_react.git
-cd cr7_react
-```
-
-Install dependencies:
-
-```bash
-npm install
+```bash id="9oylqy"
+git clone https://github.com/YOUR_USERNAME/spotify-clone.git
+cd spotify-clone
 ```
 
 ---
 
 ## ▶️ Usage
 
-Start the development server:
+Simply open the project:
 
-```bash
-npm start
+```bash id="8l7smt"
+index.html
 ```
 
-Then open your browser at:
-
-```
-http://localhost:3000
-```
+Or use a live server for better experience.
 
 ---
 
 ## 📂 Project Structure
 
-```
-cr7_react/
+```bash id="bq4h3z"
+spotify-clone/
 │
-├── public/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   ├── App.js
-│   └── index.js
-│
-├── package.json
+├── songs/            # Audio files
+├── assets/           # Images (covers, UI)
+├── index.html        # Main UI
+├── styles.css        # Styling
+├── script.js         # Logic
 └── README.md
 ```
 
@@ -75,10 +62,10 @@ cr7_react/
 
 ## ✨ Future Improvements
 
-* Add animations (Framer Motion)
-* Integrate real API data
-* Add authentication
-* Deploy using Vercel
+* Add playlist support
+* Add volume and seek controls
+* Connect to real music APIs
+* Improve UI animations
 
 ---
 
